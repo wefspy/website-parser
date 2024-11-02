@@ -1,13 +1,9 @@
 from fastapi import FastAPI
+from parsers.maxidom import get_products_roof
 
 app = FastAPI()
 
 
 @app.get("/")
-async def root():
-    return {"message": "Hello World"}
-
-
-@app.get("/hello/{name}")
-async def say_hello(name: str):
-    return {"message": f"Hello {name}"}
+async def get_products():
+    return get_products_roof()
